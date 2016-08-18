@@ -30,6 +30,13 @@ class UsersCreaterequest extends Request
             'email'=>'required|unique:users'
         ];
     }
+
+    /**
+     * Get all inputs
+     *
+     * @return array
+     */
+    
     public function inputs()
     {
         $inputs=$this->all();

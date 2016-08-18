@@ -10,10 +10,24 @@ use Auth;
 
 class AdminsController extends Controller
 {
+	/**
+     * login  page view.
+     * GET /admin
+     *
+     * @return response
+     */
+
 	public function getIndex()
 	{
 		return view('admin.login'); 
 	}
+
+	/**
+     * Login 
+     * Post /admin/login
+     * @param Request $request
+     * @return response
+     */
 
 	public function postLogin(Request $request)
 	{
@@ -24,6 +38,14 @@ class AdminsController extends Controller
             return redirect()->back();
         }
 	}
+
+	/**
+     * Return dashboard view for admin.
+     * GET /admin/dashboard
+     *
+     *
+     * @return response
+     */
 
 	public function getDashboard(UserInterface $userRepo)
 	{

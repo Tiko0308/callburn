@@ -14,12 +14,23 @@ class UserService implements UserInterface
 	{
 		$this->user = new User();
 	}
+	/**
+	 * create new user 
+	 *
+	 * @param array $data
+	 * @return user 
+	 */ 
 
 	public function getCreateUser($data)
 	{
 		$user = $this->user->create($data);
 		return $user;
 	}
+	/**
+	*
+	*
+	*@return users
+	*/
 	public function getAllUsers()
 	{
 		$user = $this->user->where('role','!=','admin')->get();
