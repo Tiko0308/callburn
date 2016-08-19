@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\UsersCreaterequest;
 use App\Contracts\UserInterface;
+use App\Contracts\PostInterface;
 use Auth;
+use Validator;
 
 class UsersController extends Controller
 {
@@ -41,7 +43,6 @@ class UsersController extends Controller
      * @param Request $request
      * @return response
      */
-
 	public function postLogin(Request $request)
 	{
 		$data = $request->all();
@@ -59,11 +60,16 @@ class UsersController extends Controller
      *
      * @return response
      */
-
-	public function getDashboard()
+	public function getDashboard(PostInterface $postRepo)
 	{
-		return view('home');
-	}
+        $post=$postRepo->getAllPost();
+        $data=[
+            'OurPosts'=> $post,
+        ];
+        return view('home',$data); 
+    }
+		
+	
 
 	/**
      * logout user
@@ -71,10 +77,36 @@ class UsersController extends Controller
      * 
      * @return response
      */
-	
 	public function getLogOut()
 	{
 		Auth::logout();
         return redirect()->action('UsersController@getIndex');
 	}
+
+    /**
+     * Adding new post
+     * Post /user/dashboard
+     * @param Request $request
+     * @param PostInterface $postRepo
+     * @return response
+     */
+    public function postAddPost(Request $request,PostInterface $postRepo)
+    {
+        $data = $request->all();
+        $validator = Validator::make($data,[
+            'post'=>'string'
+        ]);
+        if($validator->fails()){
+            $errorMessage="Something went wrong";
+            $result=[
+                'error'=>[
+                    'code'=>422,
+                    'text'=>$errorMessage,
+                ],
+            ];
+            return response()->json($result);
+        };
+        $post= $postRepo->getCreatePost($data);
+    }
+   
 }

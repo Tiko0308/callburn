@@ -67,3 +67,26 @@ label{
 .error3{
 	text-align: center;
 }
+.our_posts{
+	border:1px solid black;
+	 border-collapse: collapse;
+}
+.post{
+	display:inline-block;
+	margin-left: 20px;
+	font-size: 22px;
+	color:#001f4d;
+}
+.all_users, .all_posts{
+	width: 30%;
+	margin: 10px auto;
+	border:1px solid green;
+}
+.all_users,.all_posts p{
+	text-align: center;
+	font-size: 23px;
+}
+
+.chevron{
+	text-align: center;
+}
