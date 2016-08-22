@@ -83,30 +83,17 @@ class UsersController extends Controller
         return redirect()->action('UsersController@getIndex');
 	}
 
-    /**
-     * Adding new post
-     * Post /user/dashboard
+     /**
+     * Deleting  users by admin
+     * Post /admin/dashboard
      * @param Request $request
-     * @param PostInterface $postRepo
+     * @param UserInterface $userRepo
      * @return response
      */
-    public function postAddPost(Request $request,PostInterface $postRepo)
-    {
-        $data = $request->all();
-        $validator = Validator::make($data,[
-            'post'=>'string'
-        ]);
-        if($validator->fails()){
-            $errorMessage="Something went wrong";
-            $result=[
-                'error'=>[
-                    'code'=>422,
-                    'text'=>$errorMessage,
-                ],
-            ];
-            return response()->json($result);
-        };
-        $post= $postRepo->getCreatePost($data);
-    }
+     public function postDeleteUser(Request $request,UserInterface $userRepo)
+     {
+        $id = $request ->get('id');
+        $result=$userRepo->postDeleteUsers($id);
+     }
    
 }

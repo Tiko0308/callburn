@@ -1,0 +1,28 @@
+#done{
+	text-decoration:underline;
+}
+#pending{
+	text-decoration:underline;
+}
+#remove{
+	text-decoration:underline;
+}
+#done:hover{
+	cursor:pointer;
+	text-decoration:none;
+}
+#pending:hover{
+	cursor:pointer;
+	text-decoration:none;
+}
+#remove:hover{
+	cursor:pointer;
+	text-decoration:none;
+}
+
+
+
+
+
+
+

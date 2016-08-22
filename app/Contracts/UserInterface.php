@@ -16,4 +16,12 @@ interface UserInterface
 	*@return users
 	*/
 	public function getAllUsers();
+
+	/**
+	*Delete some users
+	*
+	*@param integer $id
+	*@return users
+	*/
+	public function postDeleteUsers($id);
 }

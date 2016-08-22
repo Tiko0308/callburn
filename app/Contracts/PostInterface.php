@@ -18,4 +18,11 @@ interface PostInterface
 	 */ 
 	public function getAllPost();
 
+	/**
+	 * delete some posts 
+	 *
+	 * @param integer $id
+	 * @return post 
+	 */ 
+	public function postDeletePost($id);
 }

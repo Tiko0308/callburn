@@ -90,3 +90,16 @@ label{
 .chevron{
 	text-align: center;
 }
+.edit,.del,.delete{
+	cursor:pointer;
+	transition:all 1.3 ease;
+}
+.edit:hover{
+	color:#999999;
+}
+.del:hover{
+	color:#999999;
+}
+.delete:hover{
+	color:#999999;
+}

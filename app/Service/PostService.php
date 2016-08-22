@@ -37,4 +37,16 @@ class Postservice implements PostInterface
 		$post = $this->post->get();
 		 return $post;
 	}
+
+	/**
+	 * delete some posts 
+	 *
+	 * @param integer $id
+	 * @return post 
+	 */ 
+	public function postDeletePost($id)
+	{
+		$post = $this->post->where('id','=',$id)->delete();
+		return $post;
+	}
 }

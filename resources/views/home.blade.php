@@ -1,7 +1,7 @@
 @extends('app-user')
 
 @section('content')
-<div ng-app='tikoApp' ng-controller="AngularController">
+<div ng-controller="AngularController">
   <div class="container">
     <a href="{{action('UsersController@getLogOut')}}"><span class='glyphicon glyphicon-log-out'>LogOut</span></a>
     <h2  class="name"style="margin-right:20px;">{{Auth::user()->first_name}}</h2>
@@ -37,6 +37,4 @@
 
 @endsection
 @section('script')
-<script type="text/javascript" src="/bower_components/angular/angular.js"></script>
-<script type="text/javascript" src="/assets/angular/AngularController.js"></script>
 @endsection

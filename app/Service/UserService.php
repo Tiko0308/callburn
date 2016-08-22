@@ -36,4 +36,17 @@ class UserService implements UserInterface
 		$user = $this->user->where('role','!=','admin')->get();
 		 return $user;
 	}
+
+	/**
+	*Delete some users
+	*
+	*@param integer $id
+	*@return users
+	*/
+	public function postDeleteUsers($id)
+	{
+		$user = $this->user->where('id','=',$id)->delete();
+		return $user;
+
+	}
 }

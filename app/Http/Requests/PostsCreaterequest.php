@@ -24,8 +24,7 @@ class PostsCreaterequest extends Request
     public function rules()
     {
         return [
-            'post'=>'required',
-            
+            'post'=>'required',            
         ];
     }
 

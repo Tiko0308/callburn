@@ -12,7 +12,7 @@ tikoApp.controller('AngularController',
 		};
 		$scope.errorMessage = false;
 		$http({
-			url:'/user/add-post',
+			url:'/post/add-post',
 			method:'post',
 			params: {post:$scope.name}
 		}).then(function(response){
@@ -38,5 +38,52 @@ tikoApp.controller('AngularController',
 			$scope.registrationData = [];
 			console.log(data);
 		})
+	}
+}]);
+
+tikoApp.controller('PostController',
+	[ 		'$scope', '$rootScope',  '$http',
+function($scope,   $rootScope,  $http){
+
+	$scope.user = false;
+	$scope.post = false;
+	$scope.deleteUser = function(id)
+	{ 	
+		$scope.user = true;
+		$scope.post = false;
+	 	$scope.user_id=id
+	}
+	$scope.deletePost = function(id)
+	{
+	 	$scope.user = false;
+		$scope.post = true;
+	 	$scope.post_id=id
+	}
+	$scope.deleteFunc=function()
+	{
+		$http({
+			url:'/user/delete-user',
+			method:'post',
+			params:{id:$scope.user_id}
+		}).then(function(response){
+			$('#deleteModal').modal('toggle')
+			if(response){
+
+		}
+	  })
+	}
+
+	$scope.MyFunc=function()
+	{
+		$http({
+			url:'/post/delete-post',
+			method:'post',
+			params:{id:$scope.post_id}
+		}).then(function(response){
+			$('#deleteModal').modal('toggle');
+			if(response){
+				$(this).parent().parent().fadeOut(500);
+		}
+	  })
 	}
 }]);

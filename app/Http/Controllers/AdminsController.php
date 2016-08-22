@@ -59,4 +59,16 @@ class AdminsController extends Controller
 		];
 		return view('admin.admin-dashboard',$data);	
 	}
+
+	/**
+     * logout admin
+     * GET /admin/log-out
+     * 
+     * @return response
+     */
+	public function getLogOut()
+	{
+		Auth::logout();
+        return redirect()->action('AdminsController@getIndex');
+	}
 }
