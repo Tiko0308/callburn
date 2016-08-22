@@ -11,6 +11,17 @@ use Auth;
 
 class AdminsController extends Controller
 {
+
+    /**
+     * Create a new instance of AdminsController class.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('admin', ['except'=>['getIndex','postLogin']]);
+    }
+
 	/**
      * login  page view.
      * GET /admin

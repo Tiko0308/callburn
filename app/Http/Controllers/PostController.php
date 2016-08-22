@@ -13,6 +13,16 @@ use Validator;
 class PostController extends Controller
 {
 	 /**
+     * Create a new instance of AdminsController class.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except'=>['getIndex','postRegistration','postLogin']]);
+    }
+
+	 /**
      * Adding new post
      * Post /user/dashboard
      * @param Request $request

@@ -13,7 +13,18 @@ use Validator;
 
 class UsersController extends Controller
 {
-	 /**
+	 
+    /**
+     * Create a new instance of AdminsController class.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except'=>['getIndex','postRegistration','postLogin']]);
+    }
+
+     /**
      * login and registration page view.
      * GET /user
      *
