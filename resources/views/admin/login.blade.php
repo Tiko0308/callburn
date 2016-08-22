@@ -24,6 +24,16 @@
                 </ul>
               </div>
     </nav>
+    @if(Session::has('error_danger'))
+	<div class='col-md-12'>
+		<div class="col-sm-9">
+			<div class="alert alert-danger">
+				{{Session::get('error_danger')}}
+			</div>
+		</div>
+	</div>
+	@endif
+    
 
 
 @endsection

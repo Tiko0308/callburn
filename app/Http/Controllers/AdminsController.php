@@ -47,7 +47,7 @@ class AdminsController extends Controller
 		if(Auth::attempt(['email' => $data['username'], 'password' => $data['password'],'role' => 'admin'])) {
             return redirect()->action('AdminsController@getDashboard');
         }else {
-            return redirect()->back();
+           return redirect()->back()->with('error_danger','Invalid Login or password');
         }
 	}
 
@@ -82,4 +82,7 @@ class AdminsController extends Controller
 		Auth::logout();
         return redirect()->action('AdminsController@getIndex');
 	}
+	public function getOneUser($id){
+        
+     }
 }

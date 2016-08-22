@@ -68,7 +68,6 @@ function($scope,   $rootScope,  $http){
 		}).then(function(response){
 			$('#deleteModal').modal('toggle')
 			if(response){
-
 		}
 	  })
 	}
@@ -82,8 +81,7 @@ function($scope,   $rootScope,  $http){
 		}).then(function(response){
 			$('#deleteModal').modal('toggle');
 			if(response){
-				$(this).parent().parent().fadeOut(500);
-		}
+			}
 	  })
 	}
 }]);

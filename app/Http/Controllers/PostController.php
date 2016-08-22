@@ -12,15 +12,7 @@ use Validator;
 
 class PostController extends Controller
 {
-	 /**
-     * Create a new instance of AdminsController class.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth', ['except'=>['getIndex','postRegistration','postLogin']]);
-    }
+
 
 	 /**
      * Adding new post
@@ -61,6 +53,10 @@ class PostController extends Controller
      	$result=$postRepo->postDeletePost($id);
      }
 
+    public function getOnePost($id)
+    {
+
+    }
    
 }
 

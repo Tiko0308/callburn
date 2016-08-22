@@ -11,7 +11,7 @@ interface UserInterface
 	public function getCreateUser($data);
 
 	/**
-	*
+	*Get all users
 	*
 	*@return users
 	*/
