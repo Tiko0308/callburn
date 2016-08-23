@@ -21,7 +21,7 @@
   	        <td>{{$user->id}}</td>
   	        <td>{{$user->first_name}}</td>
   	        <td>{{$user->last_name}}</td>
-  	        <td><a href="{{action('AdminsController@getOneUser',$user->id)}}" style="color:black;"><i class="glyphicon glyphicon-edit edit" ng-click=></i></a></td>
+  	        <td><a href="{{action('AdminsController@getUser',$user->id)}}" style="color:black;"><i class="glyphicon glyphicon-edit edit" ></i></a></td>
   	        <td><i class="glyphicon glyphicon-trash delete"  data-toggle="modal" data-target="#deleteModal"   ng-click="deleteUser({{$user->id}})"></i></td>
   	      </tr>
   	     @endforeach 
@@ -47,7 +47,7 @@
               <td>{{$post->id}}</td>
               <td>{{$post->post}}</td>
               <td>{{$post->created_at}}</td>
-              <td><a href="{{action('PostController@getOnePost',$post->id)}}" style="color:black"><i class="glyphicon glyphicon-edit edit"></i></a></td>
+              <td><a href="{{action('AdminsController@getPost',$post->id)}}" style="color:black"><i class="glyphicon glyphicon-edit edit"></i></a></td>
               <td><i class="glyphicon glyphicon-trash del" data-toggle="modal" data-target="#deleteModal"  ng-click="deletePost({{$post->id}})"></i></td>
             </tr>
            @endforeach 

@@ -49,4 +49,29 @@ class UserService implements UserInterface
 		return $user;
 
 	}
+
+	/**
+	*Get one user
+	*
+	*@param integer $id
+	*@return user
+	*/
+	public function getOneUser($id)
+	{
+		$user = $this->user->find($id);
+		return $user;
+	}
+
+	/**
+	*Update user
+	*
+	*@param integer $id
+	*@param array $data
+	*@return user
+	*/
+	public function postUpdateUser($id,$data)
+	{
+		$user = $this->getOneUser($id)->update($data);
+		return $user;
+	}
 }

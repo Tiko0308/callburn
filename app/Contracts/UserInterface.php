@@ -24,4 +24,21 @@ interface UserInterface
 	*@return users
 	*/
 	public function postDeleteUsers($id);
+
+	/**
+	*Get one user
+	*
+	*@param integer $id
+	*@return user
+	*/
+	public function getOneUser($id);
+
+	/**
+	*Update user
+	*
+	*@param integer $id
+	*@param array $data
+	*@return user
+	*/
+	public function postUpdateUser($id,$data);
 }

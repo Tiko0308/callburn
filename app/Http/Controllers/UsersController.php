@@ -106,6 +106,6 @@ class UsersController extends Controller
         $id = $request ->get('id');
         $result=$userRepo->postDeleteUsers($id);
      }
-     
-   
+
+    
 }

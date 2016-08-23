@@ -25,4 +25,22 @@ interface PostInterface
 	 * @return post 
 	 */ 
 	public function postDeletePost($id);
+
+	/**
+	 * get one post 
+	 *
+	 * @param inteeger $id
+	 * @return post 
+	 */ 
+	public function getOnePost($id);
+
+	/**
+	*update post
+	*
+	*@param integer $id
+	*@param array $data
+	*@return post
+	*/
+	public function postUpdatePost($id,$data);
+
 }

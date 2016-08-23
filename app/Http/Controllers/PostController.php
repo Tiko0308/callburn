@@ -52,11 +52,8 @@ class PostController extends Controller
      	$id = $request ->get('id');
      	$result=$postRepo->postDeletePost($id);
      }
-
-    public function getOnePost($id)
-    {
-
-    }
+     
+     
    
 }
 

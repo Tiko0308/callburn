@@ -3,7 +3,7 @@
 use App\Contracts\PostInterface;
 use App\Post;
 
-class Postservice implements PostInterface
+class PostService implements PostInterface
 {
 	/**
      * Create a new instance of PostService.
@@ -49,4 +49,30 @@ class Postservice implements PostInterface
 		$post = $this->post->where('id','=',$id)->delete();
 		return $post;
 	}
+
+	/**
+	 * get one post 
+	 *
+	 * @param inteeger $id
+	 * @return post 
+	 */ 
+	public function getOnePost($id)
+	{
+		$post = $this->post->find($id);
+		return $post;
+	}
+
+	/**
+	*update post
+	*
+	*@param integer $id
+	*@param array $data
+	*@return post
+	*/
+	public function postUpdatePost($id,$data)
+	{
+		$post = $this->getOnePost($id)->update($data);
+		return $post;
+	}
+
 }

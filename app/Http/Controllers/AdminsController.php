@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\UsersCreaterequest;
+use App\Http\Requests\Admin\UsersUpdaterequest;
+use App\Http\Requests\Admin\PostUpdaterequest;
 use App\Contracts\UserInterface;
 use App\Contracts\PostInterface;
 use Auth;
@@ -82,7 +84,66 @@ class AdminsController extends Controller
 		Auth::logout();
         return redirect()->action('AdminsController@getIndex');
 	}
-	public function getOneUser($id){
-        
+
+    /**
+     * get one user for admin
+     * GET /admin/user
+     * 
+     * @param UserInterface $userRepo
+     * @return response
+     */
+	public function getUser($id,UserInterface $userRepo)
+    {
+        $user = $userRepo->getOneUser($id);
+        $data = [
+            'OneUser' => $user
+        ];
+        return view('admin.user',$data);
+    }
+
+    /**
+    * update user 
+    *
+    * @param integer $id
+    * @param UsersUpdaterequest $request
+    * @param UserInterface $userRepo
+    * @return response
+    */
+     public function postUpdateUser($id,UsersUpdaterequest $request,UserInterface $userRepo)
+     {
+        $data = $request->inputs();
+        $user = $userRepo->postUpdateUser($id,$data);
+        return redirect()->back()->with('error','Success');
+     }
+
+     /**
+     * Get one  post for admin
+     * Post /admin/one-post
+     * @param Request $request
+     * @param PostInterface $postRepo
+     * @return response
+     */
+    public function getPost($id,PostInterface $postRepo)
+    {
+        $post = $postRepo->getOnePost($id);
+        $data = [
+            'OnePost' => $post
+        ];
+            return view('admin.post',$data);
+    }
+
+    /**
+    * update post 
+    *
+    * @param integer $id
+    * @param PostUpdaterequest $request
+    * @param PostInterface $postRepo
+    * @return response
+    */
+     public function postUpdatePost($id,PostUpdaterequest $request,PostInterface $postRepo)
+     {
+        $data = $request->inputs();
+        $post = $postRepo->postUpdatePost($id,$data);
+        return redirect()->back()->with('error','Success');
      }
 }

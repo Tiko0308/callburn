@@ -24,7 +24,7 @@
 .panel-left{
 	
 	width:70%;
-	border:1px solid lightblue;
+	border:1px solid black;
 	margin-top: 50px;
 	overflow:auto;
 	margin-left: auto;
@@ -68,7 +68,7 @@ label{
 	text-align: center;
 }
 .our_posts{
-	border:1px solid black;
+	border:1px solid lightblue;
 	 border-collapse: collapse;
 }
 .post{
@@ -102,4 +102,9 @@ label{
 }
 .delete:hover{
 	color:#999999;
+}
+.hed{
+	padding:50px 340px;
+	border:1px solid #999999;
+	text-align: 
 }
