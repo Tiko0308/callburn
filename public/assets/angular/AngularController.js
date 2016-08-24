@@ -22,24 +22,30 @@ tikoApp.controller('AngularController',
 			}
 		})
 	}
-	$scope.login = function(){
-		Restangular.all('users/login').post($scope.loginData).then(function(data){
-			// if(data.resource.error.no == 0){
-			// 	$rootScope.currentUser = data.resource.user_data;
-			// 	$state.go('dashboard');
-			// } else{
-			// 	$scope.loginErrorMessage = data.resource.error.text;
-			// }
-		});
-	}
-		
-	$scope.makeRegistration = function(){
-		Restangular.all('users/registration').post($scope.registrationData).then(function(data){
-			$scope.registrationData = [];
-			console.log(data);
-		})
-	}
 }]);
+tikoApp.controller('MessageController',
+	[      '$scope','$rootScope','$http',
+	function($scope,$rootScope,$http){
+
+  
+    $scope.mesFunc = function(id){
+    	if($scope.name == undefined || $scope.name == ''){
+    		$scope.Message = 'message cannot be sent'
+    		return;
+    	}
+    	$scope.Message = false;
+    	$http({
+    		url:'/message/add-message/'+id,
+    		method:'post',
+    		params:{message:$scope.name}
+    	}).then(function(response){
+    		if(response){
+    			$scope.name ='';
+    		}
+    	})
+    }
+	
+	}]);
 
 tikoApp.controller('PostController',
 	[ 		'$scope', '$rootScope',  '$http',

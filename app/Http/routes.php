@@ -14,3 +14,4 @@
 Route::controller('user','UsersController');
 Route::controller('admin','AdminsController');
 Route::controller('post','PostController');
+Route::controller('message','MessageController');

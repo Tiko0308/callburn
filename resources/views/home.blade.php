@@ -4,19 +4,32 @@
 <div ng-controller="AngularController">
   <div class="container">
     <a href="{{action('UsersController@getLogOut')}}"><span class='glyphicon glyphicon-log-out'>LogOut</span></a>
-    <h2  class="name"style="margin-right:20px;">{{Auth::user()->first_name}}</h2>
-    <h2  class="name">{{Auth::user()->last_name}}</h2>
-    <div class="panel panel-default">
+    <div class="cont">
+      @if(empty(Auth::user()->images))
+      <img src="/images/1.jpg">
+      @else
+          <img src="/Uploads/{{Auth::user()->images}}" style="width:75%;" class='img-rounded'>
+      @endif
+        {!! Form::open(['action' => ['UsersController@postUploadImage'], 'class' => 'form-horizontal', 'role' => 'form', 'files' => 'true' ]) !!}
+            <input type="file" name="image" style="margin-top:20px; ">
+            <input type="submit" value="Upload Image" name="sub" class="btn btn-info" style="margin-top:20px;">
+        {!! Form::close() !!}
+  </div>
+    <div class="cont_1">
+      <h2  class="name"style="margin-right:20px;">{{Auth::user()->first_name}}</h2>
+      <h2  class="name">{{Auth::user()->last_name}}</h2>
+    </div>  
+    <div class="panel panel-default cont_2">
       <div class="form-group">
         <span ng-show="errorMessage">@{{errorMessage}}</span>
   	 <form action="" method="post">   
   	    <input class="form-control form-control1" ng-model="name" id="inputdefault" type="text">
-  	    <button type="button" ng-click="myFunc()"class="btn btn-primary">Add Post</button>
+  	    <button type="button" ng-click="myFunc()"class="btn btn-primary ad_but">Add Post</button>
   	  </form>  
       </div>
-      
     </div>
-   </div>
+    <div class="cont_3"><a href="{{action('UsersController@getFriends',Auth::user()->id)}}" class="my_fr"> My Friends</a></div> 
+  </div>
   <div class="panel panel-default panel-left">
      
       <div class="panel-heading">

@@ -41,4 +41,20 @@ interface UserInterface
 	*@return user
 	*/
 	public function postUpdateUser($id,$data);
+
+	/**
+	*Get all friends
+	*
+	*@param integer $id
+	*@return users
+	*/
+	public function getFriends($id);
+
+	/**
+	*Get one friend
+	*
+	*@param integer $id
+	*@return user
+	*/
+	public function getOneFriend($id);
 }

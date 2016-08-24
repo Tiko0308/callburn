@@ -74,4 +74,28 @@ class UserService implements UserInterface
 		$user = $this->getOneUser($id)->update($data);
 		return $user;
 	}
+
+	/**
+	*Get all friends
+	*
+	*@param integer $id
+	*@return users
+	*/
+	public function getFriends($id)
+    {
+    	$user = $this->user->where('id','!=',$id)->get();
+    	return $user;
+    }
+
+    /**
+	*Get one friend
+	*
+	*@param integer $id
+	*@return user
+	*/
+	public function getOneFriend($id)
+	{
+		$user = $this->user->where('id','=',$id)->first();
+		return $user;
+	}
 }

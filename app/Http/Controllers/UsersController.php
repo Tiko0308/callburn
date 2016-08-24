@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Requests\UsersCreaterequest;
+use App\Http\Requests\ImageRequest;
 use App\Contracts\UserInterface;
 use App\Contracts\PostInterface;
 use Auth;
@@ -107,5 +108,56 @@ class UsersController extends Controller
         $result=$userRepo->postDeleteUsers($id);
      }
 
-    
+     /**
+     * Get  all friends
+     * GEt /user/friends
+     * @param UserInterface $userRepo
+     * @param integer $id
+     * @return response
+     */
+     public function getFriends($id,UserInterface $userRepo) 
+     {
+        $friend = $userRepo->getFriends($id);
+        $data = [
+         'allFriends' => $friend
+        ];
+        return view('all-friends',$data);
+     }
+
+      /**
+     * Get  one friends
+     * Get /user/one-friend
+     * @param UserInterface $userRepo
+     * @param integer $id
+     * @return response
+     */
+     public function getOneFriend($id,UserInterface $userRepo) 
+     {
+        $friend = $userRepo->getOneFriend($id);
+        $data = [
+            'User' => $friend
+        ];
+        return view('one-friend',$data);
+    }
+
+    public function postUploadImage(ImageRequest $request,UserInterface $userRepo)
+    {
+        $logoFile = $request->file('image')->getClientOriginalExtension();
+        $name = str_random(12);
+        $path = public_path() . '/Uploads';
+        $result = $request->file('image')->move($path, $name.'.'.$logoFile);
+        $data = [
+           'images' => $name.'.'.$logoFile,
+        ];
+        $result = $userRepo->postUpdateUser(Auth::user()->id,$data);
+        return redirect()->back(); 
+    }
+
+    public function getChat($id)
+    {
+        $data = [
+            'id' => $id,
+        ];
+        return view('chat',$data);
+    }
 }

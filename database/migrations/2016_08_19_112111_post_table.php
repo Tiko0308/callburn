@@ -16,7 +16,12 @@ class PostTable extends Migration
         {
             $table->increments('id');
             $table->string('post');
-            $table->nullableTimestamps();   
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->nullableTimestamps();
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');   
         });
      }   
 
@@ -27,6 +32,6 @@ class PostTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('post');
     }
 }

@@ -9,6 +9,7 @@ use App\Http\Requests\UsersCreaterequest;
 use App\Http\Requests\PostsCreaterequest;
 use App\Contracts\PostInterface;
 use Validator;
+use Auth;
 
 class PostController extends Controller
 {
@@ -25,7 +26,8 @@ class PostController extends Controller
     {
         $data = $request->all();
         $validator = Validator::make($data,[
-            'post'=>'string'
+            'post'=>'string',
+            'user_id'=>'integer'
         ]);
         if($validator->fails()){
             $errorMessage="Something went wrong";
@@ -37,6 +39,7 @@ class PostController extends Controller
             ];
             return response()->json($result);
         };
+        $data['user_id'] = Auth::user()->id;
         $post= $postRepo->getCreatePost($data);
     }
 

@@ -31,5 +31,9 @@ class AppServiceProvider extends ServiceProvider
             'App\Contracts\PostInterface',
             'App\Service\PostService'
         );
+        $this->app->bind(
+            'App\Contracts\MessageInterface',
+            'App\Service\MessageService'
+        );
     }
 }

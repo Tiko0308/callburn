@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Message extends Model
 {
 	/**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'post'; 
+    protected $table = 'messages'; 
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +19,7 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'post','user_id'
+        'text','from_id','to_id'
     ];
 
     
