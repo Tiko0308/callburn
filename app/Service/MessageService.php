@@ -28,15 +28,21 @@ class MessageService implements MessageInterface
 		return $message;
 	}
 
-	public function getFromUserMessages($id)
+	public function getFromUserMessages($id,$userId)
 	{
-		$messages = $this->message->where('from_id',$id)->with('toUsers')->get();
+		$messages = $this->message->where('from_id',$id)->where('to_id',$userId);
+		
+		$messages = $messages->orwhere(function($query) use ($userId,$id) {
+            $query->where('to_id',$id)->where('from_id',$userId);
+        });
+        
+        $messages = $messages->with('toUsers')->get();
 		return $messages;
 	}
 
-	public function getToUserMessages($id)
+	public function getToUserMessages($id,$userId)
 	{
-		$messages = $this->message->where('to_id',$id)->with('fromUsers')->get();
+		$messages = $this->message->where('to_id',$id)->where('from_id',$userId)->with('fromUsers')->get();
 		return $messages;
 	}
 }

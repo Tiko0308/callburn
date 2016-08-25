@@ -24,7 +24,7 @@ class Message extends Model
 
     public function toUsers()
     {
-        return $this->belongsTo('App\User','to_id','id')->orderBy('created_at');
+       return $this->belongsTo('App\User','to_id','id')->orderBy('created_at');
     }
 
     public function fromUsers()

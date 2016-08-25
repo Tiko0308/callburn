@@ -156,12 +156,9 @@ class UsersController extends Controller
 
     public function getChat($id,MessageInterface $messageRepo)
     {
-        $fromMessages = $messageRepo->getFromUserMessages(Auth::user()->id);
-        $toMessages = $messageRepo->getToUserMessages(Auth::user()->id);
-        //dd($fromMessages,$toMessages);
+        $fromMessages = $messageRepo->getFromUserMessages(Auth::user()->id,$id);
         $data = [
-            'from' => $fromMessages,
-            'to' => $toMessages,
+            'data' => $fromMessages,
             'id' => $id,
         ];
         return view('chat',$data);
