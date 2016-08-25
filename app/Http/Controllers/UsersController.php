@@ -9,6 +9,7 @@ use App\Http\Requests\UsersCreaterequest;
 use App\Http\Requests\ImageRequest;
 use App\Contracts\UserInterface;
 use App\Contracts\PostInterface;
+use App\Contracts\MessageInterface;
 use Auth;
 use Validator;
 
@@ -153,9 +154,14 @@ class UsersController extends Controller
         return redirect()->back(); 
     }
 
-    public function getChat($id)
+    public function getChat($id,MessageInterface $messageRepo)
     {
+        $fromMessages = $messageRepo->getFromUserMessages(Auth::user()->id);
+        $toMessages = $messageRepo->getToUserMessages(Auth::user()->id);
+        //dd($fromMessages,$toMessages);
         $data = [
+            'from' => $fromMessages,
+            'to' => $toMessages,
             'id' => $id,
         ];
         return view('chat',$data);

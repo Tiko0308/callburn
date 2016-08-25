@@ -20,7 +20,15 @@ class Message extends Model
      */
     protected $fillable = [
         'text','from_id','to_id'
-    ];
+    ];    
 
-    
+    public function toUsers()
+    {
+        return $this->belongsTo('App\User','to_id','id')->orderBy('created_at');
+    }
+
+    public function fromUsers()
+    {
+        return $this->belongsTo('App\User','from_id','id')->orderBy('created_at');
+    }
 }

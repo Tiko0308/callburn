@@ -168,8 +168,10 @@ label{
 	color:#A9A9A9;
 }	
 .message{
-	width:50%;
-    margin:150px auto 30px auto;
+	width:30%;
+	float: left;
+    margin:50px 100px 30px 100px;
+    padding-left: 20px;
     border:1px solid silver;
     height: 400px;
     overflow: auto;
@@ -185,4 +187,13 @@ label{
 .btn1{
 	float: left;
 	margin-left: 30px;
+}
+.text{
+	color:#787878;
+	font-size: 20px;
+}
+
+.img{
+	width:10% !important;
+    margin-right:10px;
 }

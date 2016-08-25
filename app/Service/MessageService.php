@@ -27,4 +27,16 @@ class MessageService implements MessageInterface
 	    $message = $this->message->create($data);
 		return $message;
 	}
+
+	public function getFromUserMessages($id)
+	{
+		$messages = $this->message->where('from_id',$id)->with('toUsers')->get();
+		return $messages;
+	}
+
+	public function getToUserMessages($id)
+	{
+		$messages = $this->message->where('to_id',$id)->with('fromUsers')->get();
+		return $messages;
+	}
 }
