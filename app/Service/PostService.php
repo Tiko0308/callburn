@@ -34,7 +34,8 @@ class PostService implements PostInterface
 	 */ 
 	public function getAllPost()
 	{
-		$post = $this->post->get();
+		$post = $this->post;
+		$post = $post->with('fromUser')->get();
 		 return $post;
 	}
 
@@ -73,6 +74,5 @@ class PostService implements PostInterface
 	{
 		$post = $this->getOnePost($id)->update($data);
 		return $post;
-	}
-
+	} 
 }

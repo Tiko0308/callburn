@@ -141,6 +141,13 @@ class UsersController extends Controller
         return view('one-friend',$data);
     }
 
+    /**
+     * Post  Upload image
+     * 
+     * @param ImageRequest $request
+     * @param UserInterface $userRepo
+     * @return response
+     */
     public function postUploadImage(ImageRequest $request,UserInterface $userRepo)
     {
         $logoFile = $request->file('image')->getClientOriginalExtension();
@@ -154,6 +161,13 @@ class UsersController extends Controller
         return redirect()->back(); 
     }
 
+    /**
+     * Get  Messages 
+     * 
+     * @param integer $id
+     * @param MessageInterface $messageRepo
+     * @return messages
+     */
     public function getChat($id,MessageInterface $messageRepo)
     {
         $fromMessages = $messageRepo->getFromUserMessages(Auth::user()->id,$id);

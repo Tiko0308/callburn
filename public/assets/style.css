@@ -37,11 +37,16 @@
 	margin-left: 20px;
 	padding:11px 12px !important;
 }
+.span{
+	float:right;
+	top:-74px;
+}
 .glyphicon-log-out{
 	float:right;
 	color:black !important;
 	font-size: 21px;
-	margin-top: 20px;
+	top:-90px;
+	margin-right: 10px;
 }
 label{
 	color:white;
@@ -78,6 +83,26 @@ label{
 	margin-left: 20px;
 	font-size: 22px;
 	color:#001f4d;
+}
+.home_page{
+	float:left;
+}
+.hom{
+	font-size: 25px;
+	color:#000000;
+	top:-90px;
+}
+.hom1{
+	font-size: 25px;
+	color:#000000;
+	top:0;
+}
+.out1{
+	float:right;
+	color:black !important;
+	font-size: 21px;
+	top:0;
+	margin-right: 10px;
 }
 .all_users, .all_posts{
 	width: 30%;
@@ -155,7 +180,14 @@ label{
 	color:#001f4d;
 	font-size: 23px;
 }
+.my_img{
+	color:#001f4d;
+	font-size: 23px;
+}
 .my_fr:hover{
+	text-decoration: none;
+}
+.my_img:hover{
 	text-decoration: none;
 }
 .friend{

@@ -1,8 +1,10 @@
 @extends('app-user')
 
 @section('content')
+<a href="{{action('UsersController@getLogOut')}}" class="span"><span class='glyphicon glyphicon-log-out'>LogOut</span></a>
+<div class="home_page"><a href="{{action('UsersController@getDashboard')}}"><span class="glyphicon glyphicon-home hom"></span></a></div>
 <div class="container">
-	<a href="{{action('UsersController@getLogOut')}}"><span class='glyphicon glyphicon-log-out'>LogOut</span></a>
+	
     <div class="cont_1" >
 	    @if(empty($User->images))
       		<img src="/images/1.jpg"  class='img-rounded'>

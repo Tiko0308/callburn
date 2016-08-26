@@ -61,7 +61,6 @@ class AdminsController extends Controller
      * @param UserInterface $userRepo
      * @return response
      */
-
 	public function getDashboard(UserInterface $userRepo,PostInterface $postRepo)
 	{
 		$post = $postRepo->getAllPost();

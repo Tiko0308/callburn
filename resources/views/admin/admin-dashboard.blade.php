@@ -2,7 +2,7 @@
 
 @section('content')
 <section ng-controller="PostController">
-  <a href="{{action('AdminsController@getLogOut')}}"><span class='glyphicon glyphicon-log-out'>LogOut</span></a>
+  <a href="{{action('AdminsController@getLogOut')}}" class="span"><span class='glyphicon glyphicon-log-out'>LogOut</span></a>
   <div class="all_users"><p>This is all users</p></div>
    <div class="chevron"><span class="glyphicon glyphicon-chevron-down down"></span></div>
   <table class="table table-bordered">

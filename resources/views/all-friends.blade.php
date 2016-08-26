@@ -1,9 +1,9 @@
 @extends('app-user')
 
 @section('content')
-
+<a href="{{action('UsersController@getLogOut')}}" class="span"><span class='glyphicon glyphicon-log-out'>LogOut</span></a>
+<div class="home_page"><a href="{{action('UsersController@getDashboard')}}"><span class="glyphicon glyphicon-home hom"></span></a></div>
 <div class="container">
-	<a href="{{action('UsersController@getLogOut')}}"><span class='glyphicon glyphicon-log-out'>LogOut</span></a>
 	<div class="all_users"><p>This is your  friends</p></div>
    <div class="chevron"><span class="glyphicon glyphicon-chevron-down down"></span></div>
  @foreach($allFriends as $friend)

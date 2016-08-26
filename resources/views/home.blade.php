@@ -2,8 +2,8 @@
 
 @section('content')
 <div ng-controller="AngularController">
+  <a href="{{action('UsersController@getLogOut')}}" class="span"><span class='glyphicon glyphicon-log-out'>LogOut</span></a>
   <div class="container">
-    <a href="{{action('UsersController@getLogOut')}}"><span class='glyphicon glyphicon-log-out'>LogOut</span></a>
     <div class="cont">
       @if(empty(Auth::user()->images))
       <img src="/images/1.jpg">
@@ -29,6 +29,7 @@
       </div>
     </div>
     <div class="cont_3"><a href="{{action('UsersController@getFriends',Auth::user()->id)}}" class="my_fr"> My Friends</a></div> 
+    <div class="cont_4"><a href="" class="my_img">Images</a></div>
   </div>
   <div class="panel panel-default panel-left">
      
@@ -36,12 +37,13 @@
         <h3 style="color:Lightblue;text-align:center;border-bottom:1px solid lightblue;">Our Posts</h3>
         @foreach($OurPosts as $post)
           <div class="our_posts">
+            <strong style="display:inline-block;">Post from User:</strong>
+            <p class="post">{{$post->fromUser->first_name}} {{$post->fromUser->last_name}}</p><br>
             <strong style="display:inline-block;">Post:</strong>
-            <p class="post">{{$post->post}}</p><br>
+            <p class="post">{{$post['post']}}</p><br>
             <strong style="display:inline-block;">Post_Time:</strong>
-            <p class="post">{{$post->created_at}}</p>
+            <p class="post">{{$post['created_at']}}</p>
           </div>
-          
         @endforeach
        </div>
       

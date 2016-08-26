@@ -1,12 +1,12 @@
 @extends('app-user')
 
 @section('content')
+ <a href="{{action('UsersController@getLogOut')}}" class="span"><span class='glyphicon glyphicon-log-out out1'>LogOut</span></a>
+ <div class="home_page"><a href="{{action('UsersController@getDashboard')}}"><span class="glyphicon glyphicon-home hom1"></span></a></div>
 <section ng-controller="MessageController">
-    <a href="{{action('UsersController@getLogOut')}}"><span class='glyphicon glyphicon-log-out'>LogOut</span></a>
 	<div class="all_users"><p>This is your  Messages</p></div>
     <div class="chevron"><span class="glyphicon glyphicon-chevron-down down"></span></div>
 	<div class="message">
-		
 		@foreach($data as $value)
 			<div class='mess_me' style="padding-bottom:51px;">
 				
