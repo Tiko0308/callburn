@@ -14,7 +14,6 @@
       		<img src="/Uploads/{{$friend->images}}"  class='img-rounded'>	
       	@endif
       	<a href="{{action('UsersController@getOneFriend',$friend->id)}}" class="friend">{{$friend->first_name}} {{$friend->last_name}}</a><br>
-        
     </div>  
  @endforeach   
 </div>

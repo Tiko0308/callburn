@@ -35,5 +35,9 @@ class AppServiceProvider extends ServiceProvider
             'App\Contracts\MessageInterface',
             'App\Service\MessageService'
         );
+         $this->app->bind(
+            'App\Contracts\ImageInterface',
+            'App\Service\ImageService'
+        );
     }
 }

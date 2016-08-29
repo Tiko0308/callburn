@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="cont_3"><a href="{{action('UsersController@getFriends',Auth::user()->id)}}" class="my_fr"> My Friends</a></div> 
-    <div class="cont_4"><a href="" class="my_img">Images</a></div>
+    <div class="cont_4"><a href="{{action('UsersController@getImages')}}" class="my_img">Images</a></div>
   </div>
   <div class="panel panel-default panel-left">
      

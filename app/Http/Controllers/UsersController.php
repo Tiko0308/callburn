@@ -10,6 +10,7 @@ use App\Http\Requests\ImageRequest;
 use App\Contracts\UserInterface;
 use App\Contracts\PostInterface;
 use App\Contracts\MessageInterface;
+use App\Contracts\ImageInterface;
 use Auth;
 use Validator;
 
@@ -176,5 +177,21 @@ class UsersController extends Controller
             'id' => $id,
         ];
         return view('chat',$data);
+    }
+
+    /**
+    * Get User upload images
+    *
+    *
+    *
+    * @return return response
+    */
+    public function getImages(ImageInterface $imageRepo)
+    {
+        $images = $imageRepo->getAllImages();
+        $data = [
+            'images' => $images
+        ];
+        return view('images',$data);
     }
 }

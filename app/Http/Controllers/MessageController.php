@@ -22,7 +22,6 @@ class MessageController extends Controller
      public function postAddMessage(Request $request,MessageInterface $messageRepo,$id)
      {
      	$data = $request->all();
-        dd($id);
      	$validator = Validator::make($data,[
             'message'=>'string',
         ]);
